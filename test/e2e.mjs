@@ -1,5 +1,7 @@
-// Browser test: serves the site locally, checks a photo and a fake file, and
-// fails if the page makes any network request outside its own origin.
+// Browser test: serves the built site (_site/) locally, checks a photo and a
+// fake file in English and in translated pages, and fails if a page makes any
+// network request outside its own origin.
+//   node scripts/build.mjs
 //   npm install --no-save playwright && npx playwright install chromium
 //   node test/e2e.mjs
 import { createServer } from 'node:http';
@@ -10,8 +12,9 @@ import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
 
-const root = fileURLToPath(new URL('..', import.meta.url));
-const fixtures = join(root, 'test', 'fixtures');
+const repo = fileURLToPath(new URL('..', import.meta.url));
+const root = join(repo, '_site');
+const fixtures = join(repo, 'test', 'fixtures');
 
 function loadPlaywright() {
   const require = createRequire(import.meta.url);
@@ -22,7 +25,8 @@ function loadPlaywright() {
 
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.xml': 'application/xml', '.txt': 'text/plain' };
 const server = createServer(async (req, res) => {
-  const file = normalize(decodeURIComponent(new URL(req.url, 'http://x').pathname)).replace(/^([/\\])+/, '') || 'index.html';
+  let file = normalize(decodeURIComponent(new URL(req.url, 'http://x').pathname)).replace(/^([/\\])+/, '');
+  if (file === '' || file.endsWith('/')) file += 'index.html';
   try {
     const body = await readFile(join(root, file));
     res.writeHead(200, { 'content-type': MIME[extname(file)] || 'application/octet-stream' });
@@ -63,6 +67,18 @@ try {
   // A photo without metadata.
   await page.setInputFiles('#file', join(fixtures, 'clean.jpg'));
   await page.waitForSelector('.verdict.ok');
+
+  // Translated pages: localized texts, and Arabic is laid out right to left.
+  await page.goto(origin + '/ru/', { waitUntil: 'networkidle' });
+  assert.equal(await page.getAttribute('html', 'lang'), 'ru');
+  await page.setInputFiles('#file', join(fixtures, 'wedding_invitation.jpg'));
+  await page.waitForSelector('.finding.danger');
+  assert.match(await page.textContent('.finding h3'), /Android/);
+  assert.doesNotMatch(await page.textContent('.result'), /Check another file|Danger/);
+  await page.goto(origin + '/ar/', { waitUntil: 'networkidle' });
+  assert.equal(await page.getAttribute('html', 'dir'), 'rtl');
+  await page.setInputFiles('#file', join(fixtures, 'gps.png'));
+  await page.waitForSelector('.photo dt');
 
   assert.deepEqual(outside, [], 'page made network requests');
   assert.deepEqual(errors, [], 'page logged errors');

@@ -1,0 +1,165 @@
+{
+  "meta": { "name": "Español", "path": "es", "hreflang": "es", "dir": "ltr", "playHl": "es" },
+  "page": {
+    "title": "Comprueba la ubicación GPS oculta de una foto y qué es realmente un archivo — FileLens Check",
+    "description": "Gratis y privado: mira la ubicación GPS, la cámara y la fecha ocultas en una foto y elimínalas, o comprueba si un archivo es en realidad un APK o un programa. Funciona en tu navegador, no se sube nada.",
+    "ogTitle": "¿Qué esconde tu archivo?",
+    "ogDescription": "Mira y elimina la ubicación GPS oculta en tus fotos. Detecta archivos falsos, como un APK llamado .jpg. No se sube nada.",
+    "navApp": "App para Android",
+    "h1": "¿Qué esconde tu archivo?",
+    "lead": "Arrastra una foto para ver la <strong>ubicación GPS, la cámara y la fecha</strong> ocultas en ella, y elimínalas con un clic. Arrastra cualquier archivo para ver <strong>qué es realmente</strong>, por ejemplo una app disfrazada de&nbsp;.jpg.",
+    "promise": "Todo funciona en tu navegador. Tu archivo nunca se sube.",
+    "dropTitle": "Arrastra un archivo aquí",
+    "dropSub": "o toca para elegir · también puedes pegar una imagen",
+    "ctaTitle": "Hazlo automáticamente en Android",
+    "ctaText": "FileLens elimina la ubicación cuando compartes una foto y revisa los archivos de WhatsApp, Telegram, el correo o el navegador antes de que los abras. Además, es un gestor de archivos completo.",
+    "tick1": "Sin anuncios, sin rastreadores, sin cuenta",
+    "tick2": "Funciona sin conexión",
+    "tick3": "Gratis",
+    "ctaButton": "Consigue FileLens en Google Play",
+    "shot1Alt": "El inspector de FileLens muestra la puntuación de confianza de un archivo",
+    "shot2Alt": "Compromiso de privacidad de FileLens: sin anuncios ni rastreo",
+    "faqTitle": "Preguntas",
+    "q1": "¿Cómo sé que mi archivo no se sube?",
+    "a1": "La página se prohíbe a sí misma enviar datos: su política de seguridad bloquea todas las solicitudes de red (<code>connect-src 'none'</code>). Puedes comprobarlo: abre las herramientas para desarrolladores del navegador, ve a la pestaña Red (Network) y arrastra un archivo; no se envía nada. También puedes cargar la página, activar el modo avión y seguirá funcionando. El código es abierto y está en GitHub.",
+    "q2": "¿Qué puede revelar una foto sobre mí?",
+    "a2": "Los móviles guardan la posición GPS exacta donde se hizo la foto, la fecha y la hora, el modelo del teléfono y a veces el nombre del propietario o un número de serie. Si compartes el archivo original, cualquiera puede leerlo. Una foto hecha en casa revela tu dirección.",
+    "q3": "¿WhatsApp, Telegram y las redes sociales eliminan la ubicación?",
+    "a3": "La mayoría de las apps la eliminan cuando envías una imagen como foto normal, porque la vuelven a comprimir. Si la envías <em>como archivo o documento</em>, la subes a la nube, la adjuntas a un correo o la publicas en un foro, los metadatos originales suelen quedarse. Compruébalo antes de compartir.",
+    "q4": "¿Eliminar los metadatos reduce la calidad de la foto?",
+    "a4": "No. FileLens Check elimina los bloques de metadatos sin volver a comprimir la imagen, así que queda idéntica byte a byte. En JPEG solo conserva la orientación, para que la foto no se vea de lado.",
+    "q5": "¿Cómo detecto un archivo falso, como un APK enviado como invitación de boda?",
+    "a5": "Los estafadores envían apps de Android (APK) o programas con nombres como <code>invitation.jpg</code>, <code>bill.pdf.apk</code> o con caracteres ocultos en el nombre. Esta página lee los primeros bytes del archivo, que muestran su tipo real diga lo que diga el nombre, y te avisa si no coinciden. Nunca instales un APK que te hayan enviado por chat.",
+    "q6": "¿Es un antivirus?",
+    "a6": "No. Comprueba qué es realmente un archivo y qué contiene, lo que detecta los trucos habituales. No compara los archivos con bases de datos de virus.",
+    "footText": "Sin cookies, sin analíticas, sin subidas. Hecho por el desarrollador de",
+    "sourceLink": "Código fuente",
+    "languages": "Idiomas"
+  },
+  "ui": {
+    "reading": "Leyendo el archivo en tu dispositivo…",
+    "pastedImage": "Imagen pegada",
+    "really": "en realidad: {type}",
+    "unknownType": "Tipo desconocido",
+    "verdictDanger": "No abras este archivo",
+    "verdictWarning": "Cuidado con este archivo",
+    "verdictPrivate": "Esta foto revela datos privados",
+    "verdictInfo": "Esta foto lleva algunos datos ocultos",
+    "verdictOk": "No se ha encontrado nada sospechoso",
+    "sevDanger": "Peligro",
+    "sevWarning": "Aviso",
+    "sevInfo": "Info",
+    "hiddenTitle": "Oculto en esta foto",
+    "factLocation": "Ubicación exacta",
+    "factTaken": "Tomada el",
+    "factCamera": "Teléfono o cámara",
+    "factOwner": "Nombre del propietario",
+    "factSerial": "Número de serie del dispositivo",
+    "factSoftware": "Editada con",
+    "factCaption": "Pie de foto oculto",
+    "factThumb": "Vista previa incrustada",
+    "factThumbValue": "Una copia pequeña de la imagen original, que puede mostrar partes que recortaste",
+    "showOnMap": "Ver en el mapa",
+    "mapHint": "abre openstreetmap.org con estas coordenadas",
+    "removeButton": "Eliminar datos ocultos",
+    "cantClean": "Los archivos de tipo {type} aún no se pueden limpiar en el navegador. Compártela como foto normal desde la galería o conviértela antes a JPEG.",
+    "noHiddenTitle": "Sin ubicación ni datos de cámara ocultos",
+    "noHiddenText": "Puedes compartir esta imagen tal como está.",
+    "matches": "El contenido coincide con el nombre. Esta página busca datos ocultos en fotos; para documentos, archivos comprimidos y apps, FileLens para Android muestra mucho más.",
+    "unknown": "Tipo de archivo desconocido. FileLens para Android puede analizarlo en profundidad.",
+    "again": "Comprobar otro archivo",
+    "damaged": "La imagen parece dañada, así que no se ha podido limpiar de forma segura.",
+    "done": "Listo. Eliminado: {list}. La calidad de la imagen no ha cambiado.",
+    "partial": "Limpiada, pero quedan algunos datos. Usa la app FileLens para una limpieza más a fondo.",
+    "orientationKept": "Solo se ha conservado el indicador de rotación, para que la foto no se vea de lado.",
+    "download": "Descargar {name}"
+  },
+  "removed": {
+    "exif": "EXIF/XMP (GPS, cámara, fechas)",
+    "iptc": "IPTC (autor, pie de foto, nombres de lugares)",
+    "comment": "comentarios",
+    "vendor": "datos del fabricante",
+    "text": "notas de texto",
+    "xmp": "XMP",
+    "time": "hora de modificación"
+  },
+  "types": {
+    "apk": "app de Android (APK)",
+    "exe": "programa de Windows (EXE/DLL)",
+    "elf": "programa de Linux/Android (ELF)",
+    "dex": "código de Android (DEX)",
+    "jar": "programa Java (JAR)",
+    "html": "página web (HTML)",
+    "script": "script",
+    "pdf": "documento PDF",
+    "docx": "documento de Word (DOCX)",
+    "xlsx": "libro de Excel (XLSX)",
+    "pptx": "presentación de PowerPoint (PPTX)",
+    "ole": "documento antiguo de Office (DOC/XLS/PPT)",
+    "epub": "libro electrónico (EPUB)",
+    "zip": "archivo ZIP",
+    "rar": "archivo RAR",
+    "7z": "archivo 7-Zip",
+    "gzip": "archivo GZIP",
+    "jpeg": "imagen JPEG",
+    "png": "imagen PNG",
+    "gif": "imagen GIF",
+    "webp": "imagen WebP",
+    "heic": "imagen HEIC/AVIF",
+    "mp4": "vídeo (MP4/MOV)",
+    "mp3": "audio (MP3)",
+    "ogg": "audio (OGG/Opus)"
+  },
+  "findings": {
+    "bidi": {
+      "title": "El nombre del archivo oculta su extensión real",
+      "why": "Contiene caracteres invisibles de derecha a izquierda, un truco para que «gpj.apk» parezca «.jpg».",
+      "action": "No lo abras. Bórralo salvo que confíes plenamente en quien te lo envió."
+    },
+    "mismatchRisky": {
+      "title": "Este «.{ext}» en realidad es: {type}",
+      "why": "El nombre aparenta ser un archivo inofensivo, pero al abrirlo puede instalarse o ejecutarse un programa.",
+      "action": "No lo abras ni lo instales. Pregunta al remitente de dónde salió o bórralo."
+    },
+    "mismatch": {
+      "title": "Este «.{ext}» en realidad es: {type}",
+      "why": "La extensión no coincide con el contenido. Suele ser inofensivo, pero a veces indica manipulación.",
+      "action": "Si confías en él, cámbiale el nombre a .{right}."
+    },
+    "riskyType": {
+      "title": "Esto es un programa: {type}",
+      "why": "Al abrirlo puede instalarse o ejecutarse un programa en tu dispositivo.",
+      "action": "Ábrelo solo si viene de una fuente de confianza, como una tienda oficial."
+    },
+    "doubleExt": {
+      "title": "Doble extensión: «.{inner}.{ext}»",
+      "why": "Los móviles y PC suelen ocultar la última extensión, así que parece un archivo .{inner}.",
+      "action": "No lo abras. Es un truco habitual en los mensajes de estafa."
+    },
+    "pdfJavaScript": {
+      "title": "El PDF contiene JavaScript",
+      "why": "Los scripts en PDF rara vez son necesarios y se usan en ataques.",
+      "action": "Ábrelo con un visor que bloquee scripts o compruébalo antes con FileLens."
+    },
+    "pdfLaunch": {
+      "title": "El PDF puede abrir otros programas",
+      "why": "Una acción de inicio puede intentar ejecutar un programa en tu ordenador.",
+      "action": "Ábrelo con un visor que bloquee scripts o compruébalo antes con FileLens."
+    },
+    "pdfEmbedded": {
+      "title": "El PDF lleva archivos ocultos dentro",
+      "why": "Los adjuntos dentro de un PDF pueden contener otros documentos o programas.",
+      "action": "Ábrelo con un visor que bloquee scripts o compruébalo antes con FileLens."
+    },
+    "pdfOpenAction": {
+      "title": "El PDF ejecuta una acción al abrirse",
+      "why": "A menudo es inofensivo (saltar a una página), pero también es así como se inician scripts automáticamente.",
+      "action": "Ábrelo con un visor que bloquee scripts o compruébalo antes con FileLens."
+    },
+    "macros": {
+      "title": "El archivo de Office contiene macros",
+      "why": "Las macros son pequeños programas. Las macros maliciosas son una forma clásica de infectar ordenadores.",
+      "action": "No habilites la edición ni las macros si no las esperabas."
+    }
+  }
+}
