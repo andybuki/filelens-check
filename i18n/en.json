@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "name": "English",
+    "path": "",
+    "hreflang": "en",
+    "dir": "ltr",
+    "playHl": "en"
+  },
+  "page": {
+    "title": "Check a photo's hidden GPS location and what a file really is — FileLens Check",
+    "description": "Free and private: see the GPS location, camera and date hidden in a photo and remove them, or check if a file is really an APK or program. Runs in your browser, nothing is uploaded.",
+    "ogTitle": "What is your file hiding?",
+    "ogDescription": "See and remove the hidden GPS location in photos. Spot fake files like an APK named .jpg. Nothing is uploaded.",
+    "navApp": "Android app",
+    "h1": "What is your file hiding?",
+    "lead": "Drop a photo to see the <strong>GPS location, camera and date</strong> hidden inside it, and remove them in one click. Drop any file to see <strong>what it really is</strong>, for example an app disguised as a&nbsp;.jpg.",
+    "promise": "Runs entirely in your browser. Your file is never uploaded.",
+    "dropTitle": "Drop a file here",
+    "dropSub": "or tap to choose · you can also paste an image",
+    "ctaTitle": "Do this automatically on Android",
+    "ctaText": "FileLens removes the location when you share a photo, and checks files from WhatsApp, Telegram, email or your browser before you open them. It also works as a full file manager.",
+    "tick1": "No ads, no trackers, no account",
+    "tick2": "Works offline",
+    "tick3": "Free",
+    "ctaButton": "Get FileLens on Google Play",
+    "shot1Alt": "FileLens inspector showing a trust score for a file",
+    "shot2Alt": "FileLens privacy promise: no ads, no tracking",
+    "faqTitle": "Questions",
+    "q1": "How do I know my file is not uploaded?",
+    "a1": "The page forbids itself from sending data: its security policy blocks all network requests (<code>connect-src 'none'</code>). You can check it: open your browser's developer tools, go to the Network tab and drop a file — nothing is sent. You can also load the page, turn on airplane mode and it still works. The code is open on GitHub.",
+    "q2": "What can a photo reveal about me?",
+    "a2": "Phones store the exact GPS position where a photo was taken, the date and time, the phone model and sometimes the owner's name or a serial number. If you share the original file, anyone can read it. A photo taken at home reveals your home address.",
+    "q3": "Do WhatsApp, Telegram and social networks remove the location?",
+    "a3": "Most apps remove it when you send a picture as a normal photo, because they re-compress it. When you send it <em>as a file or document</em>, upload it to cloud storage, attach it to an email or post it on a forum, the original metadata usually stays. Check before you share.",
+    "q4": "Does removing metadata reduce the photo quality?",
+    "a4": "No. FileLens Check removes the metadata blocks without re-compressing the image, so the picture stays byte-for-byte the same. For JPEG it keeps only the orientation, so the photo is not shown sideways.",
+    "q5": "How do I spot a fake file, like an APK sent as a wedding invitation?",
+    "a5": "Scammers send Android apps (APK) or programs with names like <code>invitation.jpg</code>, <code>bill.pdf.apk</code> or names with hidden characters. This page reads the first bytes of the file, which show its real type no matter what the name says, and warns you when they don't match. Never install an APK you received in a chat.",
+    "q6": "Is this an antivirus?",
+    "a6": "No. It checks what a file really is and what it contains, which catches common tricks. It does not compare files against virus databases.",
+    "footText": "No cookies, no analytics, no uploads. Made by the developer of",
+    "sourceLink": "Source code",
+    "languages": "Languages"
+  },
+  "ui": {
+    "reading": "Reading the file on your device…",
+    "pastedImage": "Pasted image",
+    "really": "really: {type}",
+    "unknownType": "Unknown type",
+    "verdictDanger": "Do not open this file",
+    "verdictWarning": "Be careful with this file",
+    "verdictPrivate": "This photo reveals private details",
+    "verdictInfo": "This photo carries some hidden details",
+    "verdictOk": "Nothing suspicious found",
+    "sevDanger": "Danger",
+    "sevWarning": "Warning",
+    "sevInfo": "Info",
+    "hiddenTitle": "Hidden in this photo",
+    "factLocation": "Exact location",
+    "factTaken": "Taken on",
+    "factCamera": "Phone or camera",
+    "factOwner": "Name of the owner",
+    "factSerial": "Device serial number",
+    "factSoftware": "Edited with",
+    "factCaption": "Hidden caption",
+    "factThumb": "Embedded preview",
+    "factThumbValue": "A small copy of the original picture, which can show parts you cropped out",
+    "showOnMap": "Show on map",
+    "mapHint": "opens openstreetmap.org with these coordinates",
+    "removeButton": "Remove hidden details",
+    "cantClean": "{type} files can't be cleaned in the browser yet. Share it as a normal photo from your gallery, or convert it to JPEG first.",
+    "noHiddenTitle": "No hidden location or camera details",
+    "noHiddenText": "This image is safe to share as it is.",
+    "matches": "The content matches the name. This page checks photos for hidden details; for documents, archives and apps, FileLens on Android shows much more.",
+    "unknown": "Unknown file type. FileLens on Android can inspect it in more depth.",
+    "again": "Check another file",
+    "damaged": "This image looks damaged, so it could not be cleaned safely.",
+    "done": "Done. Removed: {list}. Image quality is unchanged.",
+    "partial": "Cleaned, but some details remain. Use the FileLens app for a deeper clean.",
+    "orientationKept": "Only the rotation flag was kept, so the photo is not shown sideways.",
+    "download": "Download {name}"
+  },
+  "removed": {
+    "exif": "EXIF/XMP (GPS, camera, dates)",
+    "iptc": "IPTC (author, caption, place names)",
+    "comment": "comments",
+    "vendor": "vendor data",
+    "text": "text notes",
+    "xmp": "XMP",
+    "time": "modification time"
+  },
+  "types": {
+    "apk": "Android app (APK)",
+    "exe": "Windows program (EXE/DLL)",
+    "elf": "Linux/Android native program (ELF)",
+    "dex": "Android code (DEX)",
+    "jar": "Java program (JAR)",
+    "html": "Web page (HTML)",
+    "script": "Script",
+    "pdf": "PDF document",
+    "docx": "Word document (DOCX)",
+    "xlsx": "Excel workbook (XLSX)",
+    "pptx": "PowerPoint presentation (PPTX)",
+    "ole": "Old Office document (DOC/XLS/PPT)",
+    "epub": "E-book (EPUB)",
+    "zip": "ZIP archive",
+    "rar": "RAR archive",
+    "7z": "7-Zip archive",
+    "gzip": "GZIP archive",
+    "jpeg": "JPEG image",
+    "png": "PNG image",
+    "gif": "GIF image",
+    "webp": "WebP image",
+    "heic": "HEIC/AVIF image",
+    "mp4": "Video (MP4/MOV)",
+    "mp3": "Audio (MP3)",
+    "ogg": "Audio (OGG/Opus)"
+  },
+  "findings": {
+    "bidi": {
+      "title": "The file name hides its real ending",
+      "why": "It contains invisible right-to-left characters, a trick to make \"gpj.apk\" look like \".jpg\".",
+      "action": "Do not open it. Delete it unless you trust the sender completely."
+    },
+    "mismatchRisky": {
+      "title": "This \".{ext}\" is really: {type}",
+      "why": "The name pretends to be a harmless file, but opening it can install or run a program.",
+      "action": "Do not open or install it. Ask the sender how they made it, or delete it."
+    },
+    "mismatch": {
+      "title": "This \".{ext}\" is really: {type}",
+      "why": "The extension does not match the content. Usually harmless, sometimes a sign of tampering.",
+      "action": "Rename it to .{right} if you trust it."
+    },
+    "riskyType": {
+      "title": "This is a program: {type}",
+      "why": "Opening it can install or run a program on your device.",
+      "action": "Only open it if it comes from a source you trust, such as an official store."
+    },
+    "doubleExt": {
+      "title": "Double extension: \".{inner}.{ext}\"",
+      "why": "Phones and PCs often hide the last ending, so this looks like a .{inner} file.",
+      "action": "Do not open it. This is a common trick in scam messages."
+    },
+    "pdfJavaScript": {
+      "title": "PDF contains JavaScript",
+      "why": "Scripts in PDFs are rarely needed and are used in attacks.",
+      "action": "Open it in a viewer that blocks scripts, or check it with FileLens first."
+    },
+    "pdfLaunch": {
+      "title": "PDF can launch other programs",
+      "why": "A launch action can try to start a program on your computer.",
+      "action": "Open it in a viewer that blocks scripts, or check it with FileLens first."
+    },
+    "pdfEmbedded": {
+      "title": "PDF has files hidden inside",
+      "why": "Attachments inside a PDF can carry other documents or programs.",
+      "action": "Open it in a viewer that blocks scripts, or check it with FileLens first."
+    },
+    "pdfOpenAction": {
+      "title": "PDF runs an action when opened",
+      "why": "Often harmless (jump to a page), but also how scripts start automatically.",
+      "action": "Open it in a viewer that blocks scripts, or check it with FileLens first."
+    },
+    "macros": {
+      "title": "Office file contains macros",
+      "why": "Macros are small programs. Malicious macros are a classic way to infect computers.",
+      "action": "Do not enable editing or macros unless you expected them."
+    }
+  }
+}

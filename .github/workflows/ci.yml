@@ -12,6 +12,7 @@ jobs:
         with: { persist-credentials: false }
       - uses: actions/setup-node@v4
         with: { node-version: "22" }
+      - run: node scripts/build.mjs --check
       - run: node --test test/*.test.mjs
   browser:
     # Playwright 1.56 has no browser builds for Ubuntu 26.04 (ubuntu-latest).
@@ -22,4 +23,5 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: "22" }
       - run: npm install --no-save playwright@1.56.1 && npx playwright install --with-deps chromium
+      - run: node scripts/build.mjs
       - run: node test/e2e.mjs

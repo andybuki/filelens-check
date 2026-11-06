@@ -84,10 +84,10 @@ h1 { font-size: clamp(32px, 6vw, 52px); line-height: 1.08; letter-spacing: -0.02
 .verdict.ok { background: var(--ok-tint); color: var(--ok); }
 
 .findings { display: grid; gap: 10px; margin-top: 18px; }
-.finding { border: 1px solid var(--line); border-left-width: 4px; border-radius: 10px; padding: 12px 14px; }
-.finding.danger { border-left-color: var(--danger); background: var(--danger-tint); }
-.finding.warning { border-left-color: var(--warning); background: var(--warning-tint); }
-.finding.info { border-left-color: var(--accent); }
+.finding { border: 1px solid var(--line); border-inline-start-width: 4px; border-radius: 10px; padding: 12px 14px; }
+.finding.danger { border-inline-start-color: var(--danger); background: var(--danger-tint); }
+.finding.warning { border-inline-start-color: var(--warning); background: var(--warning-tint); }
+.finding.info { border-inline-start-color: var(--accent); }
 .finding h3 { margin: 2px 0 4px; font-size: 17px; }
 .finding p { margin: 0 0 4px; color: var(--muted); }
 .finding .action { color: var(--text); font-weight: 500; }
@@ -134,4 +134,7 @@ summary { cursor: pointer; font-weight: 600; }
 details p { color: var(--muted); margin: 10px 0 0; }
 
 .foot { text-align: center; color: var(--muted); font-size: 14px; padding: 24px 16px 40px; border-top: 1px solid var(--line); }
-.foot a { margin-left: 6px; }
+.foot a { margin-inline-start: 6px; }
+.langs { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 14px; margin-top: 14px; }
+.langs a, .langs span { margin: 0; white-space: nowrap; }
+.langs span { color: var(--text); font-weight: 600; }

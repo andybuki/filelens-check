@@ -14,11 +14,14 @@ submit it) and that you license it under the same terms.
   requests, no analytics, no third-party scripts, styles or fonts, no build step.
 - Never put real photos, documents or locations in fixtures, issues or
   screenshots. Generate synthetic files with `scripts/make_fixtures.py`.
+- Texts live in `i18n/*.json`; never hard-code user-visible strings in
+  `app.js` or `src/core.js`. A new string goes into every language file
+  (English is fine as a placeholder; the build fails if a key is missing).
 - Add or update tests and run them before opening a PR:
 
 ```bash
 npm test
-node test/e2e.mjs
+npm run e2e
 ```
 
 - Small, focused pull requests are easier to review. Open an issue first for

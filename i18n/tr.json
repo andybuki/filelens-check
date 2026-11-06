@@ -1,0 +1,165 @@
+{
+  "meta": { "name": "Türkçe", "path": "tr", "hreflang": "tr", "dir": "ltr", "playHl": "tr" },
+  "page": {
+    "title": "Fotoğraftaki gizli GPS konumunu ve dosyanın gerçek türünü kontrol edin — FileLens Check",
+    "description": "Ücretsiz ve gizli: Bir fotoğrafta gizlenmiş GPS konumunu, kamerayı ve tarihi görün ve silin ya da bir dosyanın aslında APK veya program olup olmadığını kontrol edin. Tarayıcınızda çalışır, hiçbir şey yüklenmez.",
+    "ogTitle": "Dosyanız ne saklıyor?",
+    "ogDescription": "Fotoğraflardaki gizli GPS konumunu görün ve silin. .jpg adlı bir APK gibi sahte dosyaları fark edin. Hiçbir şey yüklenmez.",
+    "navApp": "Android uygulaması",
+    "h1": "Dosyanız ne saklıyor?",
+    "lead": "İçinde gizlenmiş <strong>GPS konumunu, kamerayı ve tarihi</strong> görmek için bir fotoğraf bırakın ve bunları tek tıkla silin. Herhangi bir dosyanın <strong>gerçekte ne olduğunu</strong> görmek için onu bırakın; örneğin&nbsp;.jpg kılığına girmiş bir uygulama.",
+    "promise": "Tamamen tarayıcınızda çalışır. Dosyanız asla yüklenmez.",
+    "dropTitle": "Dosyayı buraya bırakın",
+    "dropSub": "veya seçmek için dokunun · bir görseli yapıştırabilirsiniz de",
+    "ctaTitle": "Android'de bunu otomatik yapın",
+    "ctaText": "FileLens, bir fotoğrafı paylaştığınızda konumu siler ve WhatsApp, Telegram, e-posta veya tarayıcıdan gelen dosyaları siz açmadan önce kontrol eder. Aynı zamanda tam bir dosya yöneticisidir.",
+    "tick1": "Reklam, izleyici ve hesap yok",
+    "tick2": "Çevrimdışı çalışır",
+    "tick3": "Ücretsiz",
+    "ctaButton": "FileLens'i Google Play'den indirin",
+    "shot1Alt": "FileLens denetleyicisi bir dosyanın güven puanını gösteriyor",
+    "shot2Alt": "FileLens gizlilik sözü: reklam ve takip yok",
+    "faqTitle": "Sorular",
+    "q1": "Dosyamın yüklenmediğini nereden bilebilirim?",
+    "a1": "Sayfa veri göndermeyi kendine yasaklar: güvenlik politikası tüm ağ isteklerini engeller (<code>connect-src 'none'</code>). Bunu kontrol edebilirsiniz: Tarayıcınızın geliştirici araçlarını açın, Ağ (Network) sekmesine gidin ve bir dosya bırakın; hiçbir şey gönderilmez. Sayfayı açıp uçak modunu da açabilirsiniz, çalışmaya devam eder. Kod GitHub'da açıktır.",
+    "q2": "Bir fotoğraf benim hakkımda neyi ortaya çıkarabilir?",
+    "a2": "Telefonlar, fotoğrafın çekildiği yerin tam GPS konumunu, tarihi ve saati, telefon modelini ve bazen sahibin adını ya da bir seri numarasını kaydeder. Orijinal dosyayı paylaşırsanız bunları herkes okuyabilir. Evde çekilmiş bir fotoğraf ev adresinizi ele verir.",
+    "q3": "WhatsApp, Telegram ve sosyal ağlar konumu siler mi?",
+    "a3": "Çoğu uygulama, bir görseli normal fotoğraf olarak gönderdiğinizde yeniden sıkıştırdığı için konumu siler. Görseli <em>dosya veya belge olarak</em> gönderirseniz, buluta yüklerseniz, e-postaya eklerseniz ya da bir foruma koyarsanız orijinal meta veriler genellikle kalır. Paylaşmadan önce kontrol edin.",
+    "q4": "Meta verileri silmek fotoğrafın kalitesini düşürür mü?",
+    "a4": "Hayır. FileLens Check meta veri bloklarını görseli yeniden sıkıştırmadan siler; böylece görsel bayt bayt aynı kalır. JPEG'de yalnızca yön bilgisi korunur, fotoğraf yan görünmesin diye.",
+    "q5": "Düğün davetiyesi gibi gönderilen bir APK gibi sahte bir dosyayı nasıl anlarım?",
+    "a5": "Dolandırıcılar <code>invitation.jpg</code>, <code>bill.pdf.apk</code> gibi adlara ya da adında gizli karakterler bulunan Android uygulamaları (APK) veya programlar gönderir. Bu sayfa, adı ne derse desin dosyanın gerçek türünü gösteren ilk baytlarını okur ve eşleşmediğinde sizi uyarır. Sohbette aldığınız bir APK'yı asla yüklemeyin.",
+    "q6": "Bu bir antivirüs mü?",
+    "a6": "Hayır. Bir dosyanın gerçekte ne olduğunu ve neler içerdiğini kontrol eder; bu da yaygın hileleri yakalar. Dosyaları virüs veritabanlarıyla karşılaştırmaz.",
+    "footText": "Çerez yok, analiz yok, yükleme yok. Geliştiren:",
+    "sourceLink": "Kaynak kodu",
+    "languages": "Diller"
+  },
+  "ui": {
+    "reading": "Dosya cihazınızda okunuyor…",
+    "pastedImage": "Yapıştırılan görsel",
+    "really": "gerçekte: {type}",
+    "unknownType": "Bilinmeyen tür",
+    "verdictDanger": "Bu dosyayı açmayın",
+    "verdictWarning": "Bu dosyaya dikkat edin",
+    "verdictPrivate": "Bu fotoğraf kişisel bilgileri ortaya çıkarıyor",
+    "verdictInfo": "Bu fotoğrafta bazı gizli bilgiler var",
+    "verdictOk": "Şüpheli bir şey bulunmadı",
+    "sevDanger": "Tehlike",
+    "sevWarning": "Uyarı",
+    "sevInfo": "Bilgi",
+    "hiddenTitle": "Bu fotoğrafta gizli",
+    "factLocation": "Tam konum",
+    "factTaken": "Çekilme tarihi",
+    "factCamera": "Telefon veya kamera",
+    "factOwner": "Sahibinin adı",
+    "factSerial": "Cihaz seri numarası",
+    "factSoftware": "Düzenleyen yazılım",
+    "factCaption": "Gizli açıklama",
+    "factThumb": "Gömülü önizleme",
+    "factThumbValue": "Orijinal görselin küçük bir kopyası; kırptığınız kısımları gösterebilir",
+    "showOnMap": "Haritada göster",
+    "mapHint": "bu koordinatlarla openstreetmap.org'u açar",
+    "removeButton": "Gizli bilgileri sil",
+    "cantClean": "{type} dosyaları henüz tarayıcıda temizlenemiyor. Galeriden normal fotoğraf olarak paylaşın ya da önce JPEG'e dönüştürün.",
+    "noHiddenTitle": "Gizli konum veya kamera bilgisi yok",
+    "noHiddenText": "Bu görseli olduğu gibi paylaşabilirsiniz.",
+    "matches": "İçerik adla eşleşiyor. Bu sayfa fotoğraflarda gizli bilgi arar; belgeler, arşivler ve uygulamalar için Android'deki FileLens çok daha fazlasını gösterir.",
+    "unknown": "Bilinmeyen dosya türü. Android'deki FileLens bunu daha ayrıntılı inceleyebilir.",
+    "again": "Başka bir dosyayı kontrol et",
+    "damaged": "Görsel bozuk görünüyor, bu yüzden güvenle temizlenemedi.",
+    "done": "Tamam. Silinenler: {list}. Görsel kalitesi değişmedi.",
+    "partial": "Temizlendi, ancak bazı bilgiler kaldı. Daha kapsamlı temizlik için FileLens uygulamasını kullanın.",
+    "orientationKept": "Fotoğraf yan görünmesin diye yalnızca döndürme bilgisi korundu.",
+    "download": "{name} dosyasını indir"
+  },
+  "removed": {
+    "exif": "EXIF/XMP (GPS, kamera, tarihler)",
+    "iptc": "IPTC (yazar, açıklama, yer adları)",
+    "comment": "yorumlar",
+    "vendor": "üretici verileri",
+    "text": "metin notları",
+    "xmp": "XMP",
+    "time": "değiştirilme zamanı"
+  },
+  "types": {
+    "apk": "Android uygulaması (APK)",
+    "exe": "Windows programı (EXE/DLL)",
+    "elf": "Linux/Android programı (ELF)",
+    "dex": "Android kodu (DEX)",
+    "jar": "Java programı (JAR)",
+    "html": "web sayfası (HTML)",
+    "script": "betik",
+    "pdf": "PDF belgesi",
+    "docx": "Word belgesi (DOCX)",
+    "xlsx": "Excel çalışma kitabı (XLSX)",
+    "pptx": "PowerPoint sunusu (PPTX)",
+    "ole": "eski Office belgesi (DOC/XLS/PPT)",
+    "epub": "e-kitap (EPUB)",
+    "zip": "ZIP arşivi",
+    "rar": "RAR arşivi",
+    "7z": "7-Zip arşivi",
+    "gzip": "GZIP arşivi",
+    "jpeg": "JPEG görseli",
+    "png": "PNG görseli",
+    "gif": "GIF görseli",
+    "webp": "WebP görseli",
+    "heic": "HEIC/AVIF görseli",
+    "mp4": "video (MP4/MOV)",
+    "mp3": "ses (MP3)",
+    "ogg": "ses (OGG/Opus)"
+  },
+  "findings": {
+    "bidi": {
+      "title": "Dosya adı gerçek uzantısını gizliyor",
+      "why": "Adda görünmez sağdan sola karakterler var; \"gpj.apk\" adının \".jpg\" gibi görünmesini sağlayan bir hile.",
+      "action": "Açmayın. Gönderene tamamen güvenmiyorsanız silin."
+    },
+    "mismatchRisky": {
+      "title": "Bu \".{ext}\" gerçekte: {type}",
+      "why": "Ad zararsız bir dosya gibi davranıyor, ancak açmak bir programı yükleyebilir veya çalıştırabilir.",
+      "action": "Açmayın ve yüklemeyin. Gönderene nereden geldiğini sorun ya da silin."
+    },
+    "mismatch": {
+      "title": "Bu \".{ext}\" gerçekte: {type}",
+      "why": "Uzantı içerikle eşleşmiyor. Genellikle zararsızdır, bazen kurcalandığının işaretidir.",
+      "action": "Güveniyorsanız adını .{right} olarak değiştirin."
+    },
+    "riskyType": {
+      "title": "Bu bir program: {type}",
+      "why": "Açmak cihazınıza bir program yükleyebilir veya çalıştırabilir.",
+      "action": "Yalnızca resmi bir mağaza gibi güvendiğiniz bir kaynaktan geliyorsa açın."
+    },
+    "doubleExt": {
+      "title": "Çift uzantı: \".{inner}.{ext}\"",
+      "why": "Telefonlar ve bilgisayarlar son uzantıyı çoğu zaman gizler, bu yüzden bu bir .{inner} dosyası gibi görünür.",
+      "action": "Açmayın. Bu, dolandırıcılık mesajlarında yaygın bir hiledir."
+    },
+    "pdfJavaScript": {
+      "title": "PDF JavaScript içeriyor",
+      "why": "PDF'lerdeki betiklere nadiren ihtiyaç duyulur ve saldırılarda kullanılır.",
+      "action": "Betikleri engelleyen bir görüntüleyicide açın ya da önce FileLens ile kontrol edin."
+    },
+    "pdfLaunch": {
+      "title": "PDF başka programları başlatabilir",
+      "why": "Bir başlatma eylemi bilgisayarınızda bir program çalıştırmayı deneyebilir.",
+      "action": "Betikleri engelleyen bir görüntüleyicide açın ya da önce FileLens ile kontrol edin."
+    },
+    "pdfEmbedded": {
+      "title": "PDF'in içinde gizli dosyalar var",
+      "why": "PDF içindeki ekler başka belgeler veya programlar taşıyabilir.",
+      "action": "Betikleri engelleyen bir görüntüleyicide açın ya da önce FileLens ile kontrol edin."
+    },
+    "pdfOpenAction": {
+      "title": "PDF açılırken bir eylem çalıştırıyor",
+      "why": "Çoğu zaman zararsızdır (bir sayfaya gitmek), ama betikler de bu şekilde kendiliğinden başlar.",
+      "action": "Betikleri engelleyen bir görüntüleyicide açın ya da önce FileLens ile kontrol edin."
+    },
+    "macros": {
+      "title": "Office dosyası makro içeriyor",
+      "why": "Makrolar küçük programlardır. Kötü amaçlı makrolar bilgisayarlara bulaşmanın klasik bir yoludur.",
+      "action": "Beklemiyorsanız düzenlemeyi ve makroları etkinleştirmeyin."
+    }
+  }
+}

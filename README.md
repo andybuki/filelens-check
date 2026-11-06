@@ -6,6 +6,10 @@ really is — for example an Android app (APK) disguised as `invitation.jpg`.
 
 **→ https://andybuki.github.io/filelens-check/**
 
+Available in 15 languages: English, العربية, Deutsch, Español, Français,
+हिन्दी, Italiano, 日本語, 한국어, Polski, Português, Русский, Türkçe,
+Українська, 简体中文.
+
 ![FileLens Check](assets/og.png)
 
 - **Private by design:** everything runs in your browser. The page's security
@@ -27,18 +31,20 @@ open a file.
 
 ## Run it locally
 
-It is a static page with no build step:
+A small Node script (no dependencies) builds one static page per language
+into `_site/`:
 
 ```bash
-python3 -m http.server 8000     # then open http://localhost:8000
+node scripts/build.mjs                      # Node 22+
+python3 -m http.server 8000 -d _site        # then open http://localhost:8000
 ```
 
 ## Tests
 
 ```bash
-npm test                                   # byte-level logic (Node 22+)
+npm test                                   # byte-level logic + translation checks (Node 22+)
 npm install --no-save playwright && npx playwright install chromium
-node test/e2e.mjs                          # real browser, also fails on any network request
+npm run e2e                                # build, then a real browser; fails on any network request
 python3 scripts/make_fixtures.py           # regenerate synthetic test files (Pillow)
 ```
 
@@ -46,12 +52,23 @@ python3 scripts/make_fixtures.py           # regenerate synthetic test files (Pi
 
 | File | What it does |
 |---|---|
-| `src/core.js` | Real file type from magic bytes, risk findings, lossless JPEG/PNG/WebP metadata removal. No DOM, no network. |
-| `app.js` | Page logic: reads the file locally, shows findings, offers the cleaned download. |
+| `src/core.js` | Real file type from magic bytes, risk findings (as codes), lossless JPEG/PNG/WebP metadata removal. No DOM, no network. |
+| `app.js` | Page logic: reads the file locally, shows localized findings, offers the cleaned download. |
+| `src/page.html` | Page template with `{{placeholders}}`. |
+| `i18n/*.json` | All texts, one file per language. `en.json` is the reference. |
+| `scripts/build.mjs` | Renders a page per language with `hreflang` links, writes `sitemap.xml`, and fails if a translation misses a key or a `{placeholder}`. |
 | `vendor/exifr.umd.js` | [exifr](https://github.com/MikeKovarik/exifr) 7.1.3 (MIT), served from this site, used to read the metadata. |
 
-Pushes to `main` deploy to GitHub Pages (`.github/workflows/pages.yml`); only
-the site files are published, not tests or fixtures.
+Pushes to `main` build and deploy to GitHub Pages (`.github/workflows/pages.yml`);
+only the built site is published, not tests or fixtures.
+
+## Translations
+
+Copy `i18n/en.json` to a new file, set `meta` (name, URL path, `hreflang`,
+text direction, Google Play `hl`) and translate the values. Keep the
+`{placeholders}` and the small HTML tags (`<strong>`, `<code>`, `<em>`).
+`node scripts/build.mjs --check` tells you what is missing. Corrections by
+native speakers are very welcome.
 
 ## License
 

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Nothing may leave the browser: no fetch/XHR, no third-party scripts, styles or fonts. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src 'none'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>{{page.title|attr}}</title>
+  <meta name="description" content="{{page.description|attr}}">
+  <link rel="canonical" href="{{canonical}}">
+{{alternates}}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{page.ogTitle|attr}}">
+  <meta property="og:description" content="{{page.ogDescription|attr}}">
+  <meta property="og:locale" content="{{ogLocale}}">
+  <meta property="og:url" content="{{canonical}}">
+  <meta property="og:image" content="https://andybuki.github.io/filelens-check/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#2E1065">
+  <link rel="icon" href="{{base}}assets/lens_mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="{{base}}styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "FileLens Check",
+    "url": "{{canonical}}",
+    "inLanguage": "{{lang}}",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Any (runs in the browser)",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": {{page.description|json}}
+  }
+  </script>
+  <script src="{{base}}vendor/exifr.umd.js" defer></script>
+  <script type="application/json" id="i18n">{{i18nJson}}</script>
+  <script type="module" src="{{base}}app.js"></script>
+</head>
+<body>
+  <header class="bar">
+    <a class="brand" href="{{home}}" dir="ltr"><img src="{{base}}assets/lens_mark.svg" alt="" width="26" height="26"> FileLens <span>Check</span></a>
+    <a class="bar-link" href="{{play}}header" rel="noopener">{{page.navApp}}</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>{{page.h1}}</h1>
+      <p class="lead">{{page.lead}}</p>
+      <p class="promise"><img src="{{base}}assets/lens_mark.svg" alt="" width="16" height="16"> {{page.promise}}</p>
+
+      <label id="drop" class="drop" tabindex="0">
+        <input id="file" type="file" hidden>
+        <span class="drop-title">{{page.dropTitle}}</span>
+        <span class="drop-sub">{{page.dropSub}}</span>
+      </label>
+    </section>
+
+    <section id="result" class="result" hidden aria-live="polite"></section>
+
+    <section class="cta">
+      <div class="cta-text">
+        <h2>{{page.ctaTitle}}</h2>
+        <p>{{page.ctaText}}</p>
+        <ul class="ticks">
+          <li>{{page.tick1}}</li>
+          <li>{{page.tick2}}</li>
+          <li>{{page.tick3}}</li>
+        </ul>
+        <a class="btn" href="{{play}}cta" rel="noopener">{{page.ctaButton}}</a>
+      </div>
+      <div class="cta-shots">
+        <img src="{{base}}assets/app-trust.webp" alt="{{page.shot1Alt|attr}}" width="270" height="480" loading="lazy">
+        <img src="{{base}}assets/app-privacy.webp" alt="{{page.shot2Alt|attr}}" width="270" height="480" loading="lazy">
+      </div>
+    </section>
+
+    <section class="faq">
+      <h2>{{page.faqTitle}}</h2>
+      <details>
+        <summary>{{page.q1}}</summary>
+        <p>{{page.a1}}</p>
+      </details>
+      <details>
+        <summary>{{page.q2}}</summary>
+        <p>{{page.a2}}</p>
+      </details>
+      <details>
+        <summary>{{page.q3}}</summary>
+        <p>{{page.a3}}</p>
+      </details>
+      <details>
+        <summary>{{page.q4}}</summary>
+        <p>{{page.a4}}</p>
+      </details>
+      <details>
+        <summary>{{page.q5}}</summary>
+        <p>{{page.a5}}</p>
+      </details>
+      <details>
+        <summary>{{page.q6}}</summary>
+        <p>{{page.a6}}</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>{{page.footText}} <a href="{{play}}footer" rel="noopener">FileLens</a>.
+      <a href="https://github.com/andybuki/filelens-check" rel="noopener">{{page.sourceLink}}</a></p>
+    <nav class="langs" aria-label="{{page.languages|attr}}">{{languageLinks}}</nav>
+  </footer>
+</body>
+</html>

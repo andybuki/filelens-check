@@ -18,11 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { persist-credentials: false }
-      # Publish only the site itself, not tests, fixtures or repo files.
-      - name: Collect site files
-        run: |
-          mkdir _site
-          cp -r index.html app.js styles.css robots.txt sitemap.xml src vendor assets _site/
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      # Builds one page per language into _site/; tests, fixtures and repo
+      # files are not published.
+      - name: Build site
+        run: node scripts/build.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with: { path: _site }

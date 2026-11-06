@@ -2,8 +2,6 @@
 
 const ascii = (bytes, start, len) => String.fromCharCode(...bytes.subarray(start, start + len));
 
-const article = (label) => (/^[AEIOU]/.test(label) ? 'an' : 'a');
-
 const startsWith = (bytes, sig, offset = 0) =>
   sig.every((b, i) => bytes[offset + i] === b);
 
@@ -20,33 +18,33 @@ function contains(bytes, needle, limit = bytes.length) {
   return false;
 }
 
-// kind: what the bytes really are. risky: can run code or phish when opened.
+// kind: what the bytes really are (labels live in i18n/). risky: can run code or phish when opened.
 export const TYPES = {
-  apk: { label: 'Android app (APK)', exts: ['apk', 'apks', 'xapk'], risky: true },
-  exe: { label: 'Windows program (EXE/DLL)', exts: ['exe', 'dll', 'scr', 'com', 'sys', 'msi'], risky: true },
-  elf: { label: 'Linux/Android native program (ELF)', exts: ['so', 'elf', 'bin', ''], risky: true },
-  dex: { label: 'Android code (DEX)', exts: ['dex'], risky: true },
-  jar: { label: 'Java program (JAR)', exts: ['jar'], risky: true },
-  html: { label: 'Web page (HTML)', exts: ['html', 'htm', 'xhtml', 'svg'], risky: true },
-  script: { label: 'Script', exts: ['sh', 'py', 'pl', 'rb', 'bash'], risky: true },
-  pdf: { label: 'PDF document', exts: ['pdf'] },
-  docx: { label: 'Word document (DOCX)', exts: ['docx', 'docm', 'dotx', 'dotm'] },
-  xlsx: { label: 'Excel workbook (XLSX)', exts: ['xlsx', 'xlsm', 'xltx', 'xltm'] },
-  pptx: { label: 'PowerPoint (PPTX)', exts: ['pptx', 'pptm', 'potx', 'ppsx'] },
-  ole: { label: 'Old Office document (DOC/XLS/PPT)', exts: ['doc', 'xls', 'ppt', 'msg', 'msi'] },
-  epub: { label: 'E-book (EPUB)', exts: ['epub'] },
-  zip: { label: 'ZIP archive', exts: ['zip', 'cbz', 'kmz', 'xpi', 'odt', 'ods', 'odp'] },
-  rar: { label: 'RAR archive', exts: ['rar', 'cbr'] },
-  '7z': { label: '7-Zip archive', exts: ['7z'] },
-  gzip: { label: 'GZIP archive', exts: ['gz', 'tgz'] },
-  jpeg: { label: 'JPEG image', exts: ['jpg', 'jpeg', 'jpe', 'jfif'] },
-  png: { label: 'PNG image', exts: ['png'] },
-  gif: { label: 'GIF image', exts: ['gif'] },
-  webp: { label: 'WebP image', exts: ['webp'] },
-  heic: { label: 'HEIC/AVIF image', exts: ['heic', 'heif', 'avif'] },
-  mp4: { label: 'Video (MP4/MOV)', exts: ['mp4', 'm4v', 'mov', 'm4a', '3gp'] },
-  mp3: { label: 'Audio (MP3)', exts: ['mp3'] },
-  ogg: { label: 'Audio (OGG/Opus)', exts: ['ogg', 'oga', 'opus'] },
+  apk: { exts: ['apk', 'apks', 'xapk'], risky: true },
+  exe: { exts: ['exe', 'dll', 'scr', 'com', 'sys', 'msi'], risky: true },
+  elf: { exts: ['so', 'elf', 'bin', ''], risky: true },
+  dex: { exts: ['dex'], risky: true },
+  jar: { exts: ['jar'], risky: true },
+  html: { exts: ['html', 'htm', 'xhtml', 'svg'], risky: true },
+  script: { exts: ['sh', 'py', 'pl', 'rb', 'bash'], risky: true },
+  pdf: { exts: ['pdf'] },
+  docx: { exts: ['docx', 'docm', 'dotx', 'dotm'] },
+  xlsx: { exts: ['xlsx', 'xlsm', 'xltx', 'xltm'] },
+  pptx: { exts: ['pptx', 'pptm', 'potx', 'ppsx'] },
+  ole: { exts: ['doc', 'xls', 'ppt', 'msg', 'msi'] },
+  epub: { exts: ['epub'] },
+  zip: { exts: ['zip', 'cbz', 'kmz', 'xpi', 'odt', 'ods', 'odp'] },
+  rar: { exts: ['rar', 'cbr'] },
+  '7z': { exts: ['7z'] },
+  gzip: { exts: ['gz', 'tgz'] },
+  jpeg: { exts: ['jpg', 'jpeg', 'jpe', 'jfif'] },
+  png: { exts: ['png'] },
+  gif: { exts: ['gif'] },
+  webp: { exts: ['webp'] },
+  heic: { exts: ['heic', 'heif', 'avif'] },
+  mp4: { exts: ['mp4', 'm4v', 'mov', 'm4a', '3gp'] },
+  mp3: { exts: ['mp3'] },
+  ogg: { exts: ['ogg', 'oga', 'opus'] },
 };
 
 export function detectKind(bytes) {
@@ -95,76 +93,38 @@ export function nameParts(name) {
   };
 }
 
-// Findings follow the FileLens three-beat style: what, why it matters, what to do.
-// severity: danger | warning | info | ok
+// A finding is a code plus parameters; the page turns it into localized text
+// (what was found, why it matters, what to do). severity: danger | warning | info
 export function checkFile(bytes, name) {
   const kind = detectKind(bytes);
   const { ext, innerExt, bidi } = nameParts(name);
   const findings = [];
   const type = kind ? TYPES[kind] : null;
+  const add = (code, severity, params = {}) => findings.push({ code, severity, params });
 
-  if (bidi) {
-    findings.push({
-      severity: 'danger',
-      title: 'The file name hides its real ending',
-      why: 'It contains invisible right-to-left characters, a trick to make "gpj.apk" look like ".jpg".',
-      action: 'Do not open it. Delete it unless you trust the sender completely.',
-    });
-  }
+  if (bidi) add('bidi', 'danger');
 
-  if (type && ext && !type.exts.includes(ext) && !(kind === 'zip' && ['apk', 'jar', 'docx', 'xlsx', 'pptx', 'epub'].includes(ext))) {
-    findings.push({
-      severity: type.risky ? 'danger' : 'warning',
-      title: `".${ext}" is really ${article(type.label)} ${type.label}`,
-      why: type.risky
-        ? 'The name pretends to be a harmless file, but opening it can install or run a program.'
-        : 'The extension does not match the content. Usually harmless, sometimes a sign of tampering.',
-      action: type.risky
-        ? 'Do not open or install it. Ask the sender how they made it, or delete it.'
-        : `Rename it to .${type.exts[0]} if you trust it.`,
-    });
+  const zipFamily = kind === 'zip' && ['apk', 'jar', 'docx', 'xlsx', 'pptx', 'epub'].includes(ext);
+  if (type && ext && !type.exts.includes(ext) && !zipFamily) {
+    add(type.risky ? 'mismatchRisky' : 'mismatch', type.risky ? 'danger' : 'warning', { ext, kind, right: type.exts[0] });
   } else if (type && type.risky) {
-    findings.push({
-      severity: 'warning',
-      title: `This is ${article(type.label)} ${type.label}`,
-      why: 'Opening it can install or run a program on your device.',
-      action: 'Only open it if it comes from a source you trust, such as an official store.',
-    });
+    add('riskyType', 'warning', { kind });
   }
 
-  if (type && innerExt && TYPES[kind].exts.includes(ext) && Object.values(TYPES).some((t) => t.exts.includes(innerExt)) && type.risky) {
-    findings.push({
-      severity: 'danger',
-      title: `Double extension: ".${innerExt}.${ext}"`,
-      why: `Phones and PCs often hide the last ending, so this looks like a .${innerExt} file.`,
-      action: 'Do not open it. This is a common trick in scam messages.',
-    });
+  if (type && type.risky && innerExt && type.exts.includes(ext) && Object.values(TYPES).some((t) => t.exts.includes(innerExt))) {
+    add('doubleExt', 'danger', { inner: innerExt, ext });
   }
 
   if (kind === 'pdf') {
-    const pdfChecks = [
-      ['/JavaScript', 'PDF contains JavaScript', 'Scripts in PDFs are rarely needed and are used in attacks.'],
-      ['/Launch', 'PDF can launch other programs', 'A /Launch action can try to start a program on your computer.'],
-      ['/EmbeddedFile', 'PDF has files hidden inside', 'Attachments inside a PDF can carry other documents or programs.'],
-      ['/OpenAction', 'PDF runs an action when opened', 'Often harmless (jump to a page), but also how scripts start automatically.'],
-    ];
-    for (const [needle, title, why] of pdfChecks) {
-      if (contains(bytes, needle)) {
-        findings.push({ severity: needle === '/OpenAction' ? 'info' : 'warning', title, why, action: 'Open it in a viewer that blocks scripts, or check it with FileLens first.' });
-      }
-    }
+    if (contains(bytes, '/JavaScript')) add('pdfJavaScript', 'warning');
+    if (contains(bytes, '/Launch')) add('pdfLaunch', 'warning');
+    if (contains(bytes, '/EmbeddedFile')) add('pdfEmbedded', 'warning');
+    if (contains(bytes, '/OpenAction')) add('pdfOpenAction', 'info');
   }
 
-  if (['docx', 'xlsx', 'pptx'].includes(kind) && contains(bytes, 'vbaProject.bin')) {
-    findings.push({
-      severity: 'danger',
-      title: 'Office file contains macros',
-      why: 'Macros are small programs. Malicious macros are a classic way to infect computers.',
-      action: 'Do not enable editing or macros unless you expected them.',
-    });
-  }
+  if (['docx', 'xlsx', 'pptx'].includes(kind) && contains(bytes, 'vbaProject.bin')) add('macros', 'danger');
 
-  return { kind, label: type ? type.label : 'Unknown type', ext, findings };
+  return { kind, ext, findings };
 }
 
 // ---------- Lossless metadata removal ----------
@@ -196,12 +156,9 @@ function readOrientation(seg) {
   return 0;
 }
 
-const JPEG_DROP = {
-  0xe1: 'EXIF / XMP (GPS, camera, dates)',
-  0xed: 'IPTC (author, caption, location names)',
-  0xfe: 'Comment',
-};
-for (let m = 0xe3; m <= 0xef; m++) if (!(m in JPEG_DROP) && m !== 0xee) JPEG_DROP[m] = `APP${m - 0xe0} vendor data`;
+// Values are codes of what was removed; the page shows them localized.
+const JPEG_DROP = { 0xe1: 'exif', 0xed: 'iptc', 0xfe: 'comment' };
+for (let m = 0xe3; m <= 0xef; m++) if (!(m in JPEG_DROP) && m !== 0xee) JPEG_DROP[m] = 'vendor';
 
 export function stripJpeg(bytes) {
   const out = [bytes.subarray(0, 2)];
@@ -228,7 +185,7 @@ export function stripJpeg(bytes) {
   return { bytes: concat(out), removed: [...removed], keptOrientation: orientation > 1 };
 }
 
-const PNG_DROP = { eXIf: 'EXIF (GPS, camera, dates)', tEXt: 'Text notes', iTXt: 'Text / XMP', zTXt: 'Compressed text', tIME: 'Last-modified time' };
+const PNG_DROP = { eXIf: 'exif', tEXt: 'text', iTXt: 'text', zTXt: 'text', tIME: 'time' };
 
 export function stripPng(bytes) {
   const out = [bytes.subarray(0, 8)];
@@ -246,7 +203,7 @@ export function stripPng(bytes) {
   return { bytes: concat(out), removed: [...removed], keptOrientation: false };
 }
 
-const WEBP_DROP = { EXIF: 'EXIF (GPS, camera, dates)', 'XMP ': 'XMP' };
+const WEBP_DROP = { EXIF: 'exif', 'XMP ': 'xmp' };
 
 export function stripWebp(bytes) {
   const out = [];

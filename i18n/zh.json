@@ -1,0 +1,165 @@
+{
+  "meta": { "name": "简体中文", "path": "zh", "hreflang": "zh-CN", "dir": "ltr", "playHl": "zh-CN" },
+  "page": {
+    "title": "检查照片中隐藏的 GPS 位置和文件的真实类型 — FileLens Check",
+    "description": "免费且私密：查看并删除照片中隐藏的 GPS 位置、相机型号和拍摄日期，或检查一个文件是否其实是 APK 或程序。在浏览器中运行，不上传任何内容。",
+    "ogTitle": "你的文件藏着什么？",
+    "ogDescription": "查看并删除照片中隐藏的 GPS 位置。识破伪装文件，例如名为 .jpg 的 APK。不上传任何内容。",
+    "navApp": "Android 应用",
+    "h1": "你的文件藏着什么？",
+    "lead": "拖入一张照片，即可看到其中隐藏的<strong>GPS 位置、相机型号和拍摄日期</strong>，并一键删除。拖入任意文件，即可看到<strong>它的真实身份</strong>，比如伪装成 .jpg 的应用。",
+    "promise": "完全在你的浏览器中运行。你的文件绝不会被上传。",
+    "dropTitle": "将文件拖到这里",
+    "dropSub": "或点按选择 · 也可以粘贴图片",
+    "ctaTitle": "在 Android 上自动完成",
+    "ctaText": "FileLens 会在你分享照片时删除位置信息，并在你打开来自 WhatsApp、Telegram、邮件或浏览器的文件之前先检查它们。它同时也是一款完整的文件管理器。",
+    "tick1": "无广告、无跟踪器、无需账号",
+    "tick2": "离线可用",
+    "tick3": "免费",
+    "ctaButton": "在 Google Play 获取 FileLens",
+    "shot1Alt": "FileLens 检查器显示文件的可信度评分",
+    "shot2Alt": "FileLens 隐私承诺：无广告、无跟踪",
+    "faqTitle": "常见问题",
+    "q1": "怎么知道我的文件没有被上传？",
+    "a1": "这个页面禁止自己发送任何数据：它的安全策略会阻止所有网络请求（<code>connect-src 'none'</code>）。你可以自己验证：打开浏览器的开发者工具，切换到“网络”(Network) 标签，然后拖入一个文件——不会发送任何内容。你也可以先打开页面，再开启飞行模式，它依然能正常工作。代码在 GitHub 上开源。",
+    "q2": "一张照片会暴露我的哪些信息？",
+    "a2": "手机会记录拍照地点的精确 GPS 位置、日期和时间、手机型号，有时还会记录机主姓名或序列号。如果你分享原始文件，任何人都能读取这些信息。在家里拍的照片会暴露你的住址。",
+    "q3": "WhatsApp、Telegram 和社交网络会删除位置信息吗？",
+    "a3": "大多数应用在你以普通照片发送时会重新压缩图片，因此会删除位置信息。但如果你<em>以文件或文档形式</em>发送、上传到云盘、作为邮件附件或发布到论坛，原始元数据通常会保留下来。分享前请先检查。",
+    "q4": "删除元数据会降低照片画质吗？",
+    "a4": "不会。FileLens Check 只移除元数据块，不会重新压缩图片，所以图片内容逐字节保持不变。对于 JPEG，只保留方向信息，避免照片显示为横躺。",
+    "q5": "如何识别伪装文件，比如以婚礼请柬名义发来的 APK？",
+    "a5": "骗子会发送名为 <code>invitation.jpg</code>、<code>bill.pdf.apk</code> 或文件名中带有隐藏字符的 Android 应用 (APK) 或程序。本页面会读取文件开头的字节——无论文件名写的是什么，这些字节都能显示它的真实类型——并在不一致时提醒你。切勿安装在聊天中收到的 APK。",
+    "q6": "这是杀毒软件吗？",
+    "a6": "不是。它检查文件的真实身份和内容，能识破常见的伎俩，但不会将文件与病毒库进行比对。",
+    "footText": "无 Cookie、无统计分析、无上传。开发者作品：",
+    "sourceLink": "源代码",
+    "languages": "语言"
+  },
+  "ui": {
+    "reading": "正在你的设备上读取文件…",
+    "pastedImage": "粘贴的图片",
+    "really": "实际类型：{type}",
+    "unknownType": "未知类型",
+    "verdictDanger": "不要打开这个文件",
+    "verdictWarning": "请小心这个文件",
+    "verdictPrivate": "这张照片会泄露个人信息",
+    "verdictInfo": "这张照片带有一些隐藏信息",
+    "verdictOk": "未发现可疑之处",
+    "sevDanger": "危险",
+    "sevWarning": "警告",
+    "sevInfo": "提示",
+    "hiddenTitle": "这张照片中隐藏的信息",
+    "factLocation": "精确位置",
+    "factTaken": "拍摄时间",
+    "factCamera": "手机或相机",
+    "factOwner": "机主姓名",
+    "factSerial": "设备序列号",
+    "factSoftware": "编辑软件",
+    "factCaption": "隐藏的说明文字",
+    "factThumb": "内嵌预览图",
+    "factThumbValue": "原始图片的小副本，可能会显示你裁掉的部分",
+    "showOnMap": "在地图上查看",
+    "mapHint": "将用这些坐标打开 openstreetmap.org",
+    "removeButton": "删除隐藏信息",
+    "cantClean": "暂时无法在浏览器中清理{type}文件。请从相册以普通照片形式分享，或先转换为 JPEG。",
+    "noHiddenTitle": "没有隐藏的位置或相机信息",
+    "noHiddenText": "这张图片可以直接分享。",
+    "matches": "内容与文件名相符。本页面检查照片中的隐藏信息；对于文档、压缩包和应用，Android 版 FileLens 能显示更多内容。",
+    "unknown": "未知的文件类型。Android 版 FileLens 可以更深入地检查它。",
+    "again": "检查其他文件",
+    "damaged": "图片似乎已损坏，因此无法安全清理。",
+    "done": "完成。已删除：{list}。图片画质没有变化。",
+    "partial": "已清理，但仍有部分信息残留。使用 FileLens 应用可进行更彻底的清理。",
+    "orientationKept": "只保留了旋转信息，避免照片显示为横躺。",
+    "download": "下载 {name}"
+  },
+  "removed": {
+    "exif": "EXIF/XMP（GPS、相机、日期）",
+    "iptc": "IPTC（作者、说明、地名）",
+    "comment": "注释",
+    "vendor": "厂商数据",
+    "text": "文本备注",
+    "xmp": "XMP",
+    "time": "修改时间"
+  },
+  "types": {
+    "apk": "Android 应用 (APK)",
+    "exe": "Windows 程序 (EXE/DLL)",
+    "elf": "Linux/Android 程序 (ELF)",
+    "dex": "Android 代码 (DEX)",
+    "jar": "Java 程序 (JAR)",
+    "html": "网页 (HTML)",
+    "script": "脚本",
+    "pdf": "PDF 文档",
+    "docx": "Word 文档 (DOCX)",
+    "xlsx": "Excel 工作簿 (XLSX)",
+    "pptx": "PowerPoint 演示文稿 (PPTX)",
+    "ole": "旧版 Office 文档 (DOC/XLS/PPT)",
+    "epub": "电子书 (EPUB)",
+    "zip": "ZIP 压缩包",
+    "rar": "RAR 压缩包",
+    "7z": "7-Zip 压缩包",
+    "gzip": "GZIP 压缩包",
+    "jpeg": "JPEG 图片",
+    "png": "PNG 图片",
+    "gif": "GIF 图片",
+    "webp": "WebP 图片",
+    "heic": "HEIC/AVIF 图片",
+    "mp4": "视频 (MP4/MOV)",
+    "mp3": "音频 (MP3)",
+    "ogg": "音频 (OGG/Opus)"
+  },
+  "findings": {
+    "bidi": {
+      "title": "文件名隐藏了真实的扩展名",
+      "why": "其中包含看不见的从右到左书写字符，这是让“gpj.apk”看起来像“.jpg”的伎俩。",
+      "action": "不要打开。除非你完全信任发送者，否则请删除。"
+    },
+    "mismatchRisky": {
+      "title": "这个“.{ext}”实际上是：{type}",
+      "why": "文件名伪装成无害文件，但打开它可能会安装或运行程序。",
+      "action": "不要打开或安装。问问发送者文件从哪里来，或者直接删除。"
+    },
+    "mismatch": {
+      "title": "这个“.{ext}”实际上是：{type}",
+      "why": "扩展名与内容不符。通常无害，但有时是被篡改的迹象。",
+      "action": "如果你信任它，可以将其重命名为 .{right}。"
+    },
+    "riskyType": {
+      "title": "这是一个程序：{type}",
+      "why": "打开它可能会在你的设备上安装或运行程序。",
+      "action": "只在它来自可信来源（如官方应用商店）时才打开。"
+    },
+    "doubleExt": {
+      "title": "双重扩展名：“.{inner}.{ext}”",
+      "why": "手机和电脑常常隐藏最后一个扩展名，所以它看起来像一个 .{inner} 文件。",
+      "action": "不要打开。这是诈骗信息中常见的伎俩。"
+    },
+    "pdfJavaScript": {
+      "title": "PDF 中包含 JavaScript",
+      "why": "PDF 中的脚本很少有必要，且常被用于攻击。",
+      "action": "请用会阻止脚本的阅读器打开，或先用 FileLens 检查。"
+    },
+    "pdfLaunch": {
+      "title": "PDF 可以启动其他程序",
+      "why": "启动操作可能会尝试在你的电脑上运行程序。",
+      "action": "请用会阻止脚本的阅读器打开，或先用 FileLens 检查。"
+    },
+    "pdfEmbedded": {
+      "title": "PDF 中藏有文件",
+      "why": "PDF 内的附件可能包含其他文档或程序。",
+      "action": "请用会阻止脚本的阅读器打开，或先用 FileLens 检查。"
+    },
+    "pdfOpenAction": {
+      "title": "PDF 在打开时会执行操作",
+      "why": "通常无害（例如跳转到某一页），但脚本也是通过这种方式自动启动的。",
+      "action": "请用会阻止脚本的阅读器打开，或先用 FileLens 检查。"
+    },
+    "macros": {
+      "title": "Office 文件包含宏",
+      "why": "宏是小程序。恶意宏是感染电脑的典型手段。",
+      "action": "如果你没有预料到它们，不要启用编辑或宏。"
+    }
+  }
+}
