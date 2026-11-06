@@ -14,7 +14,8 @@ jobs:
         with: { node-version: "22" }
       - run: node --test test/*.test.mjs
   browser:
-    runs-on: ubuntu-latest
+    # Playwright 1.56 has no browser builds for Ubuntu 26.04 (ubuntu-latest).
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with: { persist-credentials: false }
