@@ -14,7 +14,8 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, '_site');
 const SITE = 'https://andybuki.github.io/filelens-check/';
 const PLAY = 'https://play.google.com/store/apps/details?id=app.com.filelens';
-const STATIC = ['app.js', 'styles.css', 'robots.txt', 'src/core.js', 'vendor', 'assets'];
+// google*.html: Google Search Console ownership file, must stay at the site root.
+const STATIC = ['app.js', 'styles.css', 'robots.txt', 'google17b4bbb2a8c0854c.html', 'src/core.js', 'vendor', 'assets'];
 
 const load = (file) => JSON.parse(readFileSync(join(ROOT, 'i18n', file), 'utf8'));
 
