@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/andybuki/filelens-check/security/advisories/new
+    about: Report privately — do not open a public issue.
+  - name: FileLens Android app
+    url: https://play.google.com/store/apps/details?id=app.com.filelens
+    about: Questions about the app go to the Play Store listing.

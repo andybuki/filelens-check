@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://andybuki.github.io/filelens-check/sitemap.xml
